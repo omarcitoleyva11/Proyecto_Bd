@@ -16,7 +16,7 @@
         <div class="container">
             <ul>
                 <li><a href="citas.php">Citas por Fecha</a></li>
-                <li><a href="pacientes.html">Pacientes por Médico</a></li>
+                <li><a href="pacientes.php">Pacientes por Médico</a></li>
                 <li><a href="pagos.html">Pagos por Factura</a></li>
                 <li><a href="asegurados.html">Pacientes Asegurados</a></li>
                 <li><a href="especialidad.html">Pacientes por Especialidad</a></li>
@@ -80,6 +80,8 @@
                     
                 }
                 echo "</table>";
+
+                
         ?>
     </body>
     <footer>

@@ -24,7 +24,7 @@
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Pacientes</a>
                     <div class="dropdown-content">
-                        <a href="agregar_paciente.html">Agregar Paciente</a>
+                        <a href="agregar_paciente.html">Mostrar pacientes</a>
                         <a href="eliminar_paciente.html">Eliminar Paciente</a>
                         <a href="modificar_paciente.html">Modificar Paciente</a>
                     </div>
@@ -32,6 +32,40 @@
             </ul>
         </div>
     </nav>
+    <body>
+    <?php
+    require "conexion.php";
+    $mysqli = connect();
+
+    $res = $mysqli->query("Call ObtenerPacientes;");
+
+    echo "<table class='table-style'>";
+    echo "<tr>
+            <th>Id Paciente</th>
+            <th>Nombre del Paciente</th>
+            <th>Id del Seguro</th>
+            <th>Acciones</th>
+        </tr>";
+    while ($row = $res->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row['ID_Paciente'] . "</td>";
+        echo "<td>" . $row['Nombre'] . "</td>";
+        echo "<td>" . $row['ID_Seguro'] . "</td>";
+        echo "<td>
+        <a href='eliminarPaciente.php?id=" . $row['ID_Paciente'] . " ' class='btn btn-danger' onclick='return confirmarEliminar();'>Eliminar</a>
+        <a href='editarPaciente.php?id=" . $row['ID_Paciente'] . " ' class='btn btn-warning'>Editar</a>
+        </td>";
+        echo "</tr>";
+        
+    }
+    echo "</table>";
+
+    if (isset($_GET['mensaje']) && $_GET['mensaje'] == "exito") {
+        echo "<script>alert('Registro eliminado correctamente');</script>";
+        }
+        ?>
+        
+    </body>
     <footer>
         <div class="container">
             <p>Sistema de Citas Médicas &copy; 2024</p>
