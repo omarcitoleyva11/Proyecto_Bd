@@ -13,7 +13,7 @@ switch($tipo){
         if ($res) {
             echo "<script language='JavaScript'>
                             alert('La cita se creó correctamente');
-                            location.assign('agregarCita.php');
+                            location.assign('agregarCita.html');
                             </script>";
         } else {
             echo "Error al ejecutar la consulta: " . mysqli_error($conexion);

@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Citas Médicas</title>
     <link rel="stylesheet" href="Estilo_Inicio.css">
+    <link rel="stylesheet" href="Estilo_Citaagg.css">
 </head>
-<style>
+<body>
+    <style>
         /* Estilos CSS adicionales */
         nav {
             display: flex;
@@ -52,59 +54,19 @@
             </ul>
         </nav>
     </div>
-    </nav>
-    <body>
-        
-    <script> //FUNCION PARA CONFIRMAR ELIMINACION
-            function confirmarEliminar() {
-                return confirm('¿Estás seguro de que quieres eliminar esta cita?');
-            }
-        </script>
-    <?php
-    require "conexion.php";
-    $mysqli = connect();  
-    
-    $fecha1 = $_GET['fecha1'];
-    $fecha2 = $_GET['fecha2'];
-
-
-    echo "<form action='filtrarCita.php' method='GET'>";
-    echo "<label>Filtrar citas por las fechas:</label>";
-    echo "<input type='date' id='fecha1' name='fecha1'>";
-    echo "<input type='date' id='fecha2' name='fecha2'>";
-    echo "<button type'submit'>Buscar</button>";
-    echo "</form>";
-
-    $res = $mysqli->query("Call CitasPorFecha('$fecha1','$fecha2');");
-
-                echo "<table class='table-style'>";
-                echo "<tr>
-                        <th>Id Cita</th>
-                        <th>Id Médico</th>
-                        <th>Nombre del Médico</th>
-                        <th>Id Paciente</th>
-                        <th>Nombre del Paciente</th>
-                        <th>Fecha de la cita</th>
-                        <th>Acciones</th>
-                    </tr>";
-                while ($row = $res->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $row['IdCita'] . "</td>";
-                    echo "<td>" . $row['IdMedico'] . "</td>";
-                    echo "<td>" . $row['NombreMedico'] . "</td>";
-                    echo "<td>" . $row['IdPaciente'] . "</td>";
-                    echo "<td>" . $row['NombrePaciente'] . "</td>";
-                    echo "<td>" . $row['Fecha'] . "</td>";
-                    echo "<td>
-                    <a href='eliminarCita.php?id=" . $row['IdCita'] . " ' class='btn btn-danger' onclick='return confirmarEliminar();'>Eliminar</a>
-                    <a href='editarCita.php?id=" . $row['IdCita'] . " ' class='btn btn-warning'>Editar</a>
-                    </td>";
-                    echo "</tr>";
-                    
-                }
-                echo "</table>";
-        ?>
-    </body>
+    <div class="contenedor">
+        <h2>Agregar Cita</h2>
+        <form method="post" action="procesar_formulario.php">
+            <label>Id Medico</label>
+            <input type="text" name="idMedico" value=""><br>
+            <label>Fecha de la cita</label><br>
+            <input type="date" name="fecha" value=""><br>
+            <label>Paciente:</label><br>
+            <input type="radio" name="op" value="1">Con ID<br>
+            <input type="radio" name="op" value="2">Registrar nuevo paciente<br>
+            <button type="submit" name="pro" value="pro">Seleccionar</button><br>
+        </form>
+    </div>
     <footer>
         <div class="container">
             <p>Sistema de Citas Médicas &copy; 2024</p>

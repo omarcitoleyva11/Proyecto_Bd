@@ -6,39 +6,52 @@
     <title>Sistema de Citas Médicas</title>
     <link rel="stylesheet" href="Estilo_Inicio.css">
     <link rel="stylesheet" href="Estilo_Tabla.css">
+    <style>
+        /* Estilos CSS adicionales */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav h1 {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
+    <div class="container">
+        <nav>
             <h1>Sistema de Citas Médicas</h1>
-        </div>
-    </header>
-    <nav>
-        <div class="container">
             <ul>
                 <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropbtn">Citas</a>
-                        <div class="dropdown-content">
-                            <a href="agregarCita.php">Agregar Cita</a>
-                            <a href="eliminarCita.php">Eliminar Cita</a>
-                            <a href="editarCita.php">Modificar Cita</a>
-                            <a href="citas.php">Cita por intervalo de fecha</a>
-                        </div>
-                    </li>
-                    <li><a href="pagos.html">Pagos por Factura</a></li>
-                    <li><a href="facturas.html">Facturas por Fecha y Estado</a></li>
-                    <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropbtn">Pacientes</a>
-                        <div class="dropdown-content">
-                            <a href="agregar_paciente.html">Agregar Paciente</a>
-                            <a href="eliminar_paciente.html">Eliminar Paciente</a>
-                            <a href="modificar_paciente.html">Modificar Paciente</a>
-                            <a href="asegurados.html">Pacientes Asegurados</a>
-                            <a href="especialidad.html">Pacientes por Especialidad</a>
-                        </div>
-                    </li>
+                    <a href="javascript:void(0)" class="dropbtn">Citas</a>
+                    <div class="dropdown-content">
+                        <a href="agregarCita.html">Agregar Cita</a>
+                        <a href="elimi_cita.html">Eliminar Cita</a>
+                        <a href="editarCita.php">Modificar Cita</a>
+                        <a href="citas.php">Cita por intervalo de fecha</a>
+                    </div>
+                </li>
+                <li><a href="pagos.html">Pagos por Factura</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Factura</a>
+                    <div class="dropdown-content">
+                        <a href="factura.php">Factura por fecha y estado</a>
+                    </div>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Pacientes</a>
+                    <div class="dropdown-content">
+                        <a href="agregar_paciente.html">Agregar Paciente</a>
+                        <a href="eliminar_paciente.html">Eliminar Paciente</a>
+                        <a href="modificar_paciente.html">Modificar Paciente</a>
+                        <a href="asegurados.html">Pacientes Asegurados</a>
+                        <a href="pacientexmedi.html">Pacientes por medico</a>
+                        <a href="especialidad.html">Pacientes por Especialidad</a>
+                    </div>
+                </li>
             </ul>
-        </div>
+        </nav>
+    </div>
     </nav>
     <body>
         
