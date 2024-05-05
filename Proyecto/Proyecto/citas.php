@@ -42,7 +42,8 @@
     <?php
     require "conexion.php";
     $mysqli = connect();  
-    
+
+    echo "<a href='agregarCita.php ' class='btn btn-warning'>Registrar nueva cita</a><br>";
 
     echo "<form action='filtrarCita.php' method='GET'>";
     echo "<label>Filtrar citas por las fechas:</label>";
@@ -51,8 +52,6 @@
     echo "<button type'submit'>Buscar</button>";
     echo "</form>";
 
-
-    $mysqli = connect();    
     $res = $mysqli->query("Call ObtenerCitas;");
 
                 echo "<table class='table-style'>";
