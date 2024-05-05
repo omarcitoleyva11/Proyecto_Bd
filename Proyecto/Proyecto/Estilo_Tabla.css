@@ -1,0 +1,59 @@
+/* Estilos de la tabla */
+.table-style {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-style th,
+.table-style td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.table-style tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.table-style th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Estilos del formulario */
+.form-style {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.form-style label {
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-style input[type='date'] {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-style button[type='submit'] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.form-style button[type='submit']:hover {
+    background-color: #45a049;
+}

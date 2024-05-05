@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacientes por Médico Asignado</title>
+    <link rel="stylesheet" href="Estilo_Inicio.css">
+    <style>
+        /* Estilos adicionales para la tabla */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pacientes por Médico Asignado</h1>
+        </header>
+        <nav>
+            <div class="container">
+                <ul>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn">Citas</a>
+                        <div class="dropdown-content">
+                            <a href="agregarCita.php">Agregar Cita</a>
+                            <a href="elimi_cita.html">Eliminar Cita</a>
+                            <a href="editarCita.php">Modificar Cita</a>
+                            <a href="citas.php">Cita por intervalo de fecha</a>
+                        </div>
+                    </li>
+                    <li><a href="pagos.html">Pagos por Factura</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn">Factura</a>
+                        <div class="dropdown-content">
+                            <a href="factura.php">Factura por fecha y estado</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn">Pacientes</a>
+                        <div class="dropdown-content">
+                            <a href="agregar_paciente.html">Agregar Paciente</a>
+                            <a href="eliminar_paciente.html">Eliminar Paciente</a>
+                            <a href="modificar_paciente.html">Modificar Paciente</a>
+                            <a href="asegurados.html">Pacientes Asegurados</a>
+                            <a href="especialidad.html">Pacientes por Especialidad</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <section>
+            <label for="medicos">Seleccionar Médico:</label>
+            <select id="medicos" onchange="buscarPacientes()">
+                <!-- Opciones de médicos se cargarán dinámicamente -->
+            </select>
+            <table id="tabla-pacientes">
+                <!-- Aquí se mostrarán los resultados de los pacientes -->
+            </table>
+        </section>
+    </div>
+    <footer>
+        <div class="container">
+            <p>Sistema de Citas Médicas &copy; 2024</p>
+        </div>
+    </footer>
+    <!-- Script JavaScript -->
+    <script src="script_Medicoxpa.js"></script>
+</body>
+</html>

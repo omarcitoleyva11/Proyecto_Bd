@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Citas Médicas</title>
+    <link rel="stylesheet" href="Estilo_Inicio.css">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Sistema de Citas Médicas</h1>
+        </div>
+    </header>
+    <nav>
+        <div class="container">
+            <ul>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Citas</a>
+                    <div class="dropdown-content">
+                        <a href="agregarCita.php">Agregar Cita</a>
+                        <a href="eliminarCita.php">Eliminar Cita</a>
+                        <a href="editarCita.php">Modificar Cita</a>
+                    </div>
+                </li>
+                <li><a href="pagos.html">Pagos por Factura</a></li>
+                <li><a href="facturas.html">Facturas por Fecha y Estado</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Pacientes</a>
+                    <div class="dropdown-content">
+                        <a href="agregar_paciente.html">Agregar Paciente</a>
+                        <a href="eliminar_paciente.html">Eliminar Paciente</a>
+                        <a href="modificar_paciente.html">Modificar Paciente</a>
+                        <a href="asegurados.html">Pacientes Asegurados</a>
+                        <a href="especialidad.html">Pacientes por Especialidad</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <h2>Eliminar Cita Médica</h2>
+        <form id="buscar-citas-form">
+            <label for="nombre">Nombre del Paciente:</label>
+            <input type="text" id="nombre" name="nombre">
+            <button type="submit">Buscar</button>
+        </form>
+        <div id="resultado">
+            <!-- Aquí se mostrarán los resultados de la búsqueda -->
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>Sistema de Citas Médicas &copy; 2024</p>
+        </div>
+    </footer>
+    <script> 
+        // Función para confirmar eliminación
+        function confirmarEliminar() {
+            return confirm('¿Estás seguro de que quieres eliminar esta cita?');
+        }
+
+        // AJAX para buscar citas por nombre
+        document.getElementById("buscar-citas-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var nombre = document.getElementById("nombre").value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("resultado").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "buscar_citas_nombre.php?nombre=" + nombre, true);
+            xhttp.send();
+        });
+    </script>
+</body>
+</html>

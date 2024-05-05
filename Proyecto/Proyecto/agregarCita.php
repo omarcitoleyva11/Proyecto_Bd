@@ -15,20 +15,27 @@
     <nav>
         <div class="container">
             <ul>
-                <li><a href="citas.php">Citas por Fecha</a></li>
-                <li><a href="pacientes.html">Pacientes por Médico</a></li>
-                <li><a href="pagos.html">Pagos por Factura</a></li>
-                <li><a href="asegurados.html">Pacientes Asegurados</a></li>
-                <li><a href="especialidad.html">Pacientes por Especialidad</a></li>
-                <li><a href="facturas.html">Facturas por Fecha y Estado</a></li>
                 <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">Pacientes</a>
-                    <div class="dropdown-content">
-                        <a href="agregar_paciente.html">Agregar Paciente</a>
-                        <a href="eliminar_paciente.html">Eliminar Paciente</a>
-                        <a href="modificar_paciente.html">Modificar Paciente</a>
-                    </div>
-                </li>
+                        <a href="javascript:void(0)" class="dropbtn">Citas</a>
+                        <div class="dropdown-content">
+                            <a href="agregarCita.php">Agregar Cita</a>
+                            <a href="eliminarCita.php">Eliminar Cita</a>
+                            <a href="editarCita.php">Modificar Cita</a>
+                            <a href="citas.php">Cita por intervalo de fecha</a>
+                        </div>
+                    </li>
+                    <li><a href="pagos.html">Pagos por Factura</a></li>
+                    <li><a href="facturas.html">Facturas por Fecha y Estado</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn">Pacientes</a>
+                        <div class="dropdown-content">
+                            <a href="agregar_paciente.html">Agregar Paciente</a>
+                            <a href="eliminar_paciente.html">Eliminar Paciente</a>
+                            <a href="modificar_paciente.html">Modificar Paciente</a>
+                            <a href="asegurados.html">Pacientes Asegurados</a>
+                            <a href="especialidad.html">Pacientes por Especialidad</a>
+                        </div>
+                    </li>
             </ul>
         </div>
     </nav>

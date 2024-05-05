@@ -1,28 +1,13 @@
+/* Estilos para el fondo de la página */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    background-color: #2a2a2a; /* Color de fondo para toda la página */
+    color: #fff; /* Color de texto para resaltar */
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-header {
-    background-color: #f0f0f0;
-    padding: 20px;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0;
-}
-
+/* Estilos para el menú de navegación */
 nav {
-    background-color: #333;
-    padding: 10px;
+    background-color: #2a2a2a; /* Cambié el color de fondo */
+    padding: 20px 20px; /* Añadí un relleno para mantener un espacio entre el menú y los bordes */
 }
 
 nav ul {
@@ -30,61 +15,53 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* Alineo los elementos del menú a la izquierda */
 }
 
 nav li {
+    margin: 0 15px;
     position: relative;
 }
 
 nav a {
     color: #fff;
     text-decoration: none;
-    padding: 10px;
-    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: color 0.3s;
 }
 
 nav a:hover {
-    background-color: #555;
+    color: #f48c06;
 }
 
-nav .dropdown {
-    position: relative;
-}
-
-nav .dropdown-content {
+/* Estilos para el menú desplegable */
+.dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #2a2a2a; /* Cambié el color de fondo */
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    top: 100%; /* Ajusté la posición del menú desplegable */
+    left: 0; /* Ajusté la posición del menú desplegable */
+    border-radius: 4px;
+    padding-top: 8px;
 }
 
-nav .dropdown-content a {
-    color: #333;
-    padding: 12px 16px;
+.dropdown-content a {
+    color: #fff;
+    padding: 10px 15px;
     text-decoration: none;
     display: block;
+    transition: background-color 0.3s;
 }
 
-nav .dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown-content a:hover {
+    background-color: #444; /* Cambié el color de fondo al pasar el cursor */
+}
 
-nav .dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content {
     display: block;
-}
-
-nav .dropdown:hover .dropbtn {
-    background-color: #555;
-}
-
-footer {
-    background-color: #f0f0f0;
-    padding: 20px;
-    text-align: center;
-    margin-top: 20px;
-}
-
-footer p {
-    margin: 0;
 }
