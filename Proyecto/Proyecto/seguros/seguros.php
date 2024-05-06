@@ -2,9 +2,9 @@
 require "../conexion.php";
     $mysqli = connect();
 
-    echo "<a href='agregarmedico.php'>Registrar nuevo medico</a>";
+    echo "<a href='agregarseguro.php'>Registrar nuevo seguro</a>";
 
-    $res = $mysqli->query("Call ObtenerMedicos;");
+    $res = $mysqli->query("Call ObtenerEsp;");
 
     if ($res && $res->num_rows > 0) {
         echo "<table class='table-style'>";

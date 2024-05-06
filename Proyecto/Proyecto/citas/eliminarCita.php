@@ -1,7 +1,7 @@
 <?php
             $id = $_GET['id'];
 
-            require "conexion.php";
+            require "../conexion.php";
             $mysqli = connect();
         
             

@@ -1,5 +1,5 @@
 <?php
-            require "conexion.php";
+            require "../conexion.php";
             $mysqli = connect();
             $id = isset($_GET['id']) ? $_GET['id'] : '';
             $error = "";             

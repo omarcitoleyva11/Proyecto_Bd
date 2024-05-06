@@ -1,5 +1,5 @@
 <?php
-require "conexion.php";
+require "../conexion.php";
 $mysqli = connect(); 
 
 $tipo = $_POST['tipo'];
@@ -13,7 +13,7 @@ switch($tipo){
         if ($res) {
             echo "<script language='JavaScript'>
                             alert('La cita se creó correctamente');
-                            location.assign('agregarCita.html');
+                            location.assign('citas.php');
                             </script>";
         } else {
             echo "Error al ejecutar la consulta: " . mysqli_error($conexion);
@@ -34,7 +34,7 @@ switch($tipo){
         if ($res) {
             echo "<script language='JavaScript'>
                             alert('La cita se creó correctamente');
-                            location.assign('agregarCita.php');
+                            location.assign('citas.php');
                             </script>";
         } else {
             echo "Error al ejecutar la consulta: " . mysqli_error($conexion);

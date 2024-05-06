@@ -37,12 +37,15 @@
         </nav>
     </div>
     <main>
-        <!-- Aquí puedes agregar tu contenido principal -->
-    </main>
-    <footer>
-        <div class="container">
-            <p>Sistema de Citas Médicas &copy; 2024</p>
-        </div>
-    </footer>
-</body>
-</html>
+<h1 class="titulo">Agregar Especialidad</h1>
+
+<?php
+
+require "../conexion.php";
+    $mysqli = connect(); 
+
+echo '<form action="guardaresp.php"method="POST">';
+                            echo '<label>Nombre de la especialidad</label>';
+                            echo '<input type="text" name="nEsp" value=""><br>';
+                            echo '<input type="submit" name="Enviar" value="Enviar" class="boton">';
+                            echo '</form>';
