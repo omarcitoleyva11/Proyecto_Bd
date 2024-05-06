@@ -34,10 +34,28 @@
     </nav>
     <body>
     <?php
-    require "conexion.php";
+    require "../conexion.php";
     $mysqli = connect();
 
     $res = $mysqli->query("Call ObtenerPacientes;");
+
+    echo "<form action='pacientepormedico.php' method='GET'>";
+    echo "<label>Encontrar pacientes por médico:</label>";
+    echo "<input type='text' id='idMedico' name='idMedico'>";
+    echo "<button type'submit'>Buscar</button>";
+    echo "</form><br>";
+
+    echo "<form action='pacientesasegurados.php' method='GET'>";
+    echo "<label>Encontrar pacientes asegurados</label>";
+    echo "<button type'submit'>Buscar</button>";
+    echo "</form><br>";
+    
+    echo "<form action='pacienteporespecialidad.php' method='GET'>";
+    echo "<label>Encontrar pacientes por especialidad:</label>";
+    echo "<input type='text' id='idEsp' name='idEsp'>";
+    echo "<button type'submit'>Buscar</button>";
+    echo "</form><br>";
+
 
     echo "<table class='table-style'>";
     echo "<tr>

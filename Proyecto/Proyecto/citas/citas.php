@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Citas Médicas</title>
-    <link rel="stylesheet" href="Estilo_Inicio.css">
+    <link rel="stylesheet" href="../Estilo_Inicio.css">
 </head>
 <body>
     <header>
@@ -16,7 +16,7 @@
         <div class="container">
             <ul>
                 <li><a href="citas.php">Citas por Fecha</a></li>
-                <li><a href="pacientes.html">Pacientes por Médico</a></li>
+                <li><a href="pacientes.php">Pacientes por Médico</a></li>
                 <li><a href="pagos.html">Pagos por Factura</a></li>
                 <li><a href="asegurados.html">Pacientes Asegurados</a></li>
                 <li><a href="especialidad.html">Pacientes por Especialidad</a></li>
@@ -40,12 +40,10 @@
             }
         </script>
     <?php
-    require "conexion.php";
+    require "../conexion.php";
     $mysqli = connect();  
-    
-    $fecha1 = $_GET['fecha1'];
-    $fecha2 = $_GET['fecha2'];
 
+    echo "<a href='agregarCita.php ' class='btn btn-warning'>Registrar nueva cita</a><br>";
 
     echo "<form action='filtrarCita.php' method='GET'>";
     echo "<label>Filtrar citas por las fechas:</label>";
@@ -54,7 +52,7 @@
     echo "<button type'submit'>Buscar</button>";
     echo "</form>";
 
-    $res = $mysqli->query("Call CitasPorFecha('$fecha1','$fecha2');");
+    $res = $mysqli->query("Call ObtenerCitas;");
 
                 echo "<table class='table-style'>";
                 echo "<tr>
@@ -82,6 +80,8 @@
                     
                 }
                 echo "</table>";
+
+                
         ?>
     </body>
     <footer>
