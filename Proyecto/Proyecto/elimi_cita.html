@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Citas Médicas</title>
-   
     <link rel="stylesheet" href="Estilo_Inicio.css">
-    <link rel="stylesheet" href="Estilo_Form.css">
-  
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
     <style>
         /* Estilos CSS adicionales */
         nav {
@@ -54,29 +54,42 @@
             </ul>
         </nav>
     </div>
-            </li>
-        </ul>
     </nav>
-    <div class="contenedor">
-        <h2>Agregar Paciente</h2>
-        <form id="agregar-paciente-form" action="agregar_paciente.php" method="POST">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-            
-            <label for="direccion">Dirección:</label>
-            <input type="text" id="direccion" name="direccion" required>
-
-            <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" name="telefono" required>
-
-            <label for="correo">Correo electrónico:</label>
-            <input type="email" id="correo" name="correo" required>
-
-            <label for="id_seguro">ID del seguro:</label>
-            <input type="number" id="id_seguro" name="id_seguro" >
-
-            <button type="submit">Agregar Paciente</button>
+    <main>
+        <h2>Eliminar Cita Médica</h2>
+        <form id="buscar-citas-form">
+            <label for="nombre">Nombre del Paciente:</label>
+            <input type="text" id="nombre" name="nombre">
+            <button type="submit">Buscar</button>
         </form>
-    </div>
+        <div id="resultado">
+            <!-- Aquí se mostrarán los resultados de la búsqueda -->
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>Sistema de Citas Médicas &copy; 2024</p>
+        </div>
+    </footer>
+    <script> 
+        // Función para confirmar eliminación
+        function confirmarEliminar() {
+            return confirm('¿Estás seguro de que quieres eliminar esta cita?');
+        }
+
+        // AJAX para buscar citas por nombre
+        document.getElementById("buscar-citas-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var nombre = document.getElementById("nombre").value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("resultado").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "buscar_citas_nombre.php?nombre=" + nombre, true);
+            xhttp.send();
+        });
+    </script>
 </body>
 </html>
