@@ -6,40 +6,51 @@ $tipo = $_POST['tipo'];
 
 switch($tipo){
     case '1':
+        // Caso 1: Paciente existente
         $idMedico = $_POST['idMedico'];
         $fecha = $_POST['fecha'];
         $idPaciente = $_POST['idPaciente'];
-        $res=$mysqli->query("Call AgregarCita($idMedico,$idPaciente,'$fecha');");
-        if ($res) {
-            echo "<script language='JavaScript'>
-                            alert('La cita se creó correctamente');
-                            location.assign('citas.php');
-                            </script>";
+        $montoTotal = $_POST['montoTotal']; // Obtener el monto total
+
+        // Llamar al procedimiento almacenado con cuatro argumentos
+        $res = $mysqli->query("CALL AgregarCita($idMedico, $idPaciente, '$fecha', $montoTotal);");
+        if (!$res) {
+            echo "Error al ejecutar la consulta: " . $mysqli->error;
         } else {
-            echo "Error al ejecutar la consulta: " . mysqli_error($conexion);
+            echo "<script language='JavaScript'>
+                  alert('La cita se creó correctamente');
+                  location.assign('citas.php');
+                  </script>";
         }
         break;
     case '2':
+        // Caso 2: Nuevo paciente
         $idMedico = $_POST['idMedico'];
         $fecha = $_POST['fecha'];
-        $nPaciente= $_POST['nPaciente'];
+        $nPaciente = $_POST['nPaciente'];
         $idSeguro = $_POST['idSeguro'];
+        $montoTotal = $_POST['montoTotal']; // Obtener el monto total
+
         if (empty($idSeguro)){
             $idSeguro = "NULL";
         }
-        $res=$mysqli->query("CALL sp_AgregarPaciente('$nPaciente',$idSeguro)");
-        $consigueId=$mysqli->query("SELECT LAST_INSERT_ID();");
-        $idPaciente = $consigueId->fetch_row()[0];
-        $res=$mysqli->query("Call AgregarCita($idMedico,$idPaciente,'$fecha');");
+        // Agregar nuevo paciente
+        $res = $mysqli->query("CALL sp_AgregarPaciente('$nPaciente', $idSeguro)");
+        // Obtener el ID del paciente recién agregado
+        $result = $mysqli->query("SELECT LAST_INSERT_ID();");
+        $row = $result->fetch_assoc();
+        $idPaciente = $row['LAST_INSERT_ID()'];
+
+        // Llamar al procedimiento almacenado con cuatro argumentos
+        $res = $mysqli->query("CALL AgregarCita($idMedico, $idPaciente, '$fecha', $montoTotal);");
         if ($res) {
             echo "<script language='JavaScript'>
-                            alert('La cita se creó correctamente');
-                            location.assign('citas.php');
-                            </script>";
+                  alert('La cita se creó correctamente');
+                  location.assign('citas.php');
+                  </script>";
         } else {
-            echo "Error al ejecutar la consulta: " . mysqli_error($conexion);
+            echo "Error al ejecutar la consulta: " . $mysqli->error;
         }
         break;
-        break;
-    }
+}
 ?>
