@@ -60,8 +60,6 @@
     <?php
     require "../conexion.php";
     $mysqli = connect();  
-    
-    $idMedico = $_GET['idMedico'];
 
 
     $fecha1 = $_GET['fecha1'];
