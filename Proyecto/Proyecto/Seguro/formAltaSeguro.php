@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Citas Médicas</title>
+    <title>Agregar Seguro</title>
     <link rel="stylesheet" href="../Estilo_Inicio.css">
     <style>
         /* Estilos CSS adicionales */
@@ -42,40 +42,11 @@
             </ul>
         </nav>
     </div>
-    <main>
-<?php
-require "../conexion.php";
-    $mysqli = connect();
-
-    echo "<a href='agregarespecialidad.php'>Registrar nueva especialidad</a>";
-
-    $res = $mysqli->query("Call ObtenerEsp;");
-
-    if ($res && $res->num_rows > 0) {
-        echo "<table class='table-style'>";
-        echo "<tr>
-                <th>Id de la especialidad</th>
-                <th>Nombre de la especialidad</th>
-                <th>Acciones</th>
-            </tr>";
-        while ($row = $res->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td>" . $row['ID_Especialidad'] . "</td>";
-            echo "<td>" . $row['Nombre_Especialidad'] . "</td>";
-            echo "<td>
-            <a href='eliminarEspecialidad.php?id=" . $row['ID_Especialidad'] . " ' class='btn btn-danger' onclick='return confirmarEliminar();'>Eliminar</a>
-            <a href='editarEspecialidad.php?id=" . $row['ID_Especialidad'] . " ' class='btn btn-warning'>Editar</a>
-            </td>";
-            echo "</tr>";
-        }
-        echo "</table>";
-    } else {
-        echo "<p>No se encontraron especialidades.</p>";
-    }
-    
-?>
-<script> //FUNCION PARA CONFIRMAR ELIMINACION
-            function confirmarEliminar() {
-                return confirm('¿Estás seguro de que quieres eliminar esta cita?');
-            }
-        </script>
+    <h2>Agregar Seguro</h2>
+    <form action="altaSeguro.php" method="post">
+        <label for="nombreSeguro">Nombre del Seguro:</label><br>
+        <input type="text" id="nombreSeguro" name="nombreSeguro" required><br><br>
+        <input type="submit" value="Agregar Seguro">
+    </form>
+</body>
+</html>
